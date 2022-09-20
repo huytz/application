@@ -8,6 +8,8 @@ containerImage:
 
 applicationName: "cms"
 
+replicaCount: 2
+
 # The default config exposes TCP port 80 and binds the name `http` to it.
 containerPorts:
   http:
