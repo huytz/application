@@ -1,16 +1,24 @@
 # application
 
+# template in local to check yaml
+
+```
+helm template cms ./application -f cms.yaml
+helm template frontend ./application -f frontend.yaml
+
+```
+
 # install frontend:
 
 ```
-helm install frontend ./application -f frontend.yaml
+helm upgrade --install frontend ./application -f frontend.yaml
 ```
 
 
 # install backend:
 
 ```
-helm install backend ./application -f backend.yaml
+helm upgrade --install backend ./application -f backend.yaml
 ```
 
 # Redeploy applications
