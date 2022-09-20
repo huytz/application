@@ -25,7 +25,16 @@ service:
 
 # config domain here
 ingress:
-  enabled: false
+  enabled: true
+  path: /
+  pathType: Prefix
+  servicePort: 80
+  hosts:
+    - frontend-domain.vn
+  tls:
+    - hosts:
+      - frontend-domain.vn
+      secretName: tls-config
 
 envVars:
   NODE_ENV: production

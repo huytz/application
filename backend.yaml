@@ -25,15 +25,15 @@ service:
 
 # config domain here
 ingress:
-  enabled: true
+  enabled: false
   path: /
   pathType: Prefix
-  servicePort: 8999
+  servicePort: 3000
   hosts:
-    - frontend-domain.vn
+    - backend-domain.vn
   tls:
     - hosts:
-      - frontend-domain.vn
+      - backend-domain.vn
       secretName: tls-config
 
 envVars:
