@@ -1,0 +1,85 @@
+deployment:
+  enabled: true
+
+containerImage:
+  repository: nginx
+  tag: 1.18.2
+  pullPolicy: IfNotPresent
+
+applicationName: "frontend"
+
+# The default config exposes TCP port 80 and binds the name `http` to it.
+containerPorts:
+  http:
+    port: 3000
+    protocol: TCP
+
+service:
+  enabled: true
+  ports:
+    app:
+      port: 3000
+      targetPort: http
+      protocol: TCP
+
+ingress:
+  enabled: false
+
+# envVars is a map of strings to strings that specifies hard coded environment variables that should be set on the
+# application container.
+# EXAMPLE:
+#
+# envVars:
+#   DB_HOST: "psql.default.svc.cluster.local"
+#   DB_PORT: 5432
+envVars: {}
+
+# envFrom is a map of strings code environment variable use secrets
+envFroms:
+  enabled: false
+
+additionalContainerEnv: {}
+
+configMaps: {}
+
+# EXAMPLE:
+# persistentVolumes:
+#   example-pv:
+#     mountPath: /mnt/myVol
+#     claimName: example-pv-claim
+#   example-pv-2:
+#     mountPath: /mnt/myOtherVol
+#     claimName: example-pv2-claim
+#
+#
+persistentVolumes: {}
+
+scratchPaths: {}
+
+secrets: {}
+
+# containerResources:
+#   limits:
+#     memory:
+#     cpu:
+#   reqeuests:
+#     memory:
+#     cpu:
+containerResources: {}
+
+nodeSelector: {}
+affinity: {}
+
+tolerations: []
+
+# list is a string that corresponds to the Secret name.
+imagePullSecrets: []
+
+
+# The default config uses empty string to indicate that the default service account should be used and one shouldn't
+# be created
+serviceAccount:
+  name: ""
+  create: false
+  annotations: {}
+  labels: {}
