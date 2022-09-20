@@ -81,8 +81,8 @@ affinity: {}
 tolerations: []
 
 # list is a string that corresponds to the Secret name.
-imagePullSecrets: []
-
+imagePullSecrets:
+  - imagepull-example
 
 # The default config uses empty string to indicate that the default service account should be used and one shouldn't
 # be created
