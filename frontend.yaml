@@ -62,32 +62,17 @@ envVars:
 envFroms:
   enabled: false
 
-additionalContainerEnv: {}
-
-configMaps: {}
 
 persistentVolumes: {}
-
-scratchPaths: {}
-
-secrets: {}
-
-containerResources: {}
-
-nodeSelector: {}
-
-affinity: {}
-
-tolerations: []
 
 # list is a string that corresponds to the Secret name.
 imagePullSecrets:
   - imagepull-example
 
-# The default config uses empty string to indicate that the default service account should be used and one shouldn't
-# be created
-serviceAccount:
-  name: ""
-  create: false
-  annotations: {}
-  labels: {}
+containerResources:
+  limits:
+    memory: 200Mi
+    cpu: 200m
+  reqeuests:
+    memory: 100Mi
+    cpu: 100m
