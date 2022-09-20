@@ -11,3 +11,14 @@ helm install frontend ./application -f frontend.yaml
 
 ```
 helm install backend ./application -f backend.yaml
+```
+
+# Redeploy applications
+```
+kubectl rollout restart deploy frontend
+
+kubectl rollout restart deploy cms
+```
+
+
+
