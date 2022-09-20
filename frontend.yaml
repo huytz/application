@@ -25,14 +25,27 @@ service:
 ingress:
   enabled: false
 
-# envVars is a map of strings to strings that specifies hard coded environment variables that should be set on the
-# application container.
-# EXAMPLE:
-#
-# envVars:
-#   DB_HOST: "psql.default.svc.cluster.local"
-#   DB_PORT: 5432
-envVars: {}
+envVars:
+  NODE_ENV: production
+  REDIS_URL: cache
+  DIRECTUS_LOCAL: "http://cms:8055"
+  ELASTIC_HOST: "http://elasticsearch:9200/"
+  DIRECTUS_URL: ${DIRECTUS_URL}
+  DIRECTUS_ADMIN_KEY: ${DIRECTUS_ADMIN_KEY}
+  PUBLIC_URL: ${FRONTEND_URL}
+  BASE_DOMAIN: "base.vn"
+  BASE_TOKEN: ""
+  BASE_API_VERSION: "v1"
+  BASE_API_TIMEOUT: "5000"
+  BASE_FILE_LIMIT_SIZE: "20"
+  BASE_STATUS_PUBLIC: "10"
+  BASE_STATUS_CLOSE: "-1"
+  BASE_STATUS_DRAFT: "0"
+  BASE_LANG_CODE_DF: "vi-VI"
+  RECAPCHA_SECRET: ${CAPTCHA_SECRET}
+  RECAPCHA_SITEKEY: ${CAPTCHA_SITEKEY}
+  ELASTIC_USERNAME: ${ELASTIC_USERNAME}
+  ELASTIC_PASSWORD: ${ELASTIC_PASSWORD}
 
 # envFrom is a map of strings code environment variable use secrets
 envFroms:
@@ -42,32 +55,16 @@ additionalContainerEnv: {}
 
 configMaps: {}
 
-# EXAMPLE:
-# persistentVolumes:
-#   example-pv:
-#     mountPath: /mnt/myVol
-#     claimName: example-pv-claim
-#   example-pv-2:
-#     mountPath: /mnt/myOtherVol
-#     claimName: example-pv2-claim
-#
-#
 persistentVolumes: {}
 
 scratchPaths: {}
 
 secrets: {}
 
-# containerResources:
-#   limits:
-#     memory:
-#     cpu:
-#   reqeuests:
-#     memory:
-#     cpu:
 containerResources: {}
 
 nodeSelector: {}
+
 affinity: {}
 
 tolerations: []
