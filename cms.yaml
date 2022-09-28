@@ -66,6 +66,6 @@ containerResources:
   limits:
     memory: 200Mi
     cpu: 200m
-  reqeuests:
+  requests:
     memory: 100Mi
     cpu: 100m
