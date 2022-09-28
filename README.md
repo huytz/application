@@ -29,4 +29,8 @@ kubectl rollout restart deploy cms
 ```
 
 
+# Install ingress-nginx
 
+ - `make ingress`
+
+ - 
